@@ -1,29 +1,15 @@
 defmodule GuessingGame do
-  def compare(secret_number) do
-    compare(secret_number, :no_guess)
-  end
+  def compare(secret_number, guess \\ :no_guess)
 
-  def compare(_secret_number, :no_guess) do
-    "Make a guess"
-  end
+  def compare(_secret_number, :no_guess), do: "Make a guess"
 
-  def compare(secret_number, guess) do
-    compare_response(secret_number - guess)
-  end
+  def compare(secret_number, guess) when secret_number == guess, do: "Correct"
 
-  def compare_response(0) do
-    "Correct"
-  end
+  def compare(secret_number, guess)
+      when secret_number - guess == 1 or secret_number - guess == -1,
+      do: "So close"
 
-  def compare_response(diff) when diff == 1 or diff == -1 do
-    "So close"
-  end
+  def compare(secret_number, guess) when secret_number > guess, do: "Too low"
 
-  def compare_response(diff) when diff > 0 do
-    "Too low"
-  end
-
-  def compare_response(diff) when diff < 0 do
-    "Too high"
-  end
+  def compare(secret_number, guess) when secret_number < guess, do: "Too high"
 end
