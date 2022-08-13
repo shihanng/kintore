@@ -46,12 +46,12 @@ defmodule RationalNumbers do
   """
   @spec pow_rational(a :: rational, n :: integer) :: rational
   def pow_rational({a, b}, n) when n >= 0 do
-    {Integer.pow(a, n), Integer.pow(b, n)} |> reduce
+    {a ** n, b ** n} |> reduce
   end
 
   def pow_rational({a, b}, n) do
     m = Kernel.abs(n)
-    {Integer.pow(b, m), Integer.pow(a, m)} |> reduce
+    {b ** m, a ** m} |> reduce
   end
 
   @doc """
@@ -59,7 +59,7 @@ defmodule RationalNumbers do
   """
   @spec pow_real(x :: integer, n :: rational) :: float
   def pow_real(x, {a, b}) do
-    Float.pow(x / 1, a / b)
+    x ** (a / b)
   end
 
   @doc """
@@ -67,7 +67,7 @@ defmodule RationalNumbers do
   """
   @spec reduce(a :: rational) :: rational
   def reduce({a, b}) when b < 0 do
-    {a * -1, b * -1} |> reduce
+    {-a, -b} |> reduce
   end
 
   def reduce({a, b}) do
