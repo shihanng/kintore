@@ -31,11 +31,11 @@ defmodule BirdCount do
     do_total(list, 0)
   end
 
-  def do_total([], total) do
+  defp do_total([], total) do
     total
   end
 
-  def do_total([head | tail], total) do
+  defp do_total([head | tail], total) do
     do_total(tail, total + head)
   end
 
@@ -43,15 +43,15 @@ defmodule BirdCount do
     do_busy_days(list, 0)
   end
 
-  def do_busy_days([], total) do
+  defp do_busy_days([], total) do
     total
   end
 
-  def do_busy_days([head | tail], total) when head >= 5 do
+  defp do_busy_days([head | tail], total) when head >= 5 do
     do_busy_days(tail, total + 1)
   end
 
-  def do_busy_days([_ | tail], total) do
+  defp do_busy_days([_ | tail], total) do
     do_busy_days(tail, total)
   end
 end
