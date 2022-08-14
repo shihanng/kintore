@@ -15,20 +15,16 @@ defmodule BirdCount do
     [head + 1 | tail]
   end
 
-  def has_day_without_birds?(list) do
-    do_has_day_without_birds?(list)
-  end
-
-  defp do_has_day_without_birds?([]) do
+  def has_day_without_birds?([]) do
     false
   end
 
-  defp do_has_day_without_birds?([0 | _tail]) do
+  def has_day_without_birds?([0 | _tail]) do
     true
   end
 
-  defp do_has_day_without_birds?([_head | tail]) do
-    do_has_day_without_birds?(tail)
+  def has_day_without_birds?([_head | tail]) do
+    has_day_without_birds?(tail)
   end
 
   def total(list) do
