@@ -1,7 +1,6 @@
 defmodule RPG.CharacterSheet do
   def welcome() do
     IO.puts("Welcome! Let's fill out your character sheet together.")
-    :ok
   end
 
   def ask_name() do
@@ -27,7 +26,6 @@ defmodule RPG.CharacterSheet do
     class = ask_class()
     level = ask_level()
     character = %{class: class, level: level, name: name}
-    IO.puts("Your character: #{inspect(character)}")
-    character
+    IO.inspect(character, label: "Your character")
   end
 end
