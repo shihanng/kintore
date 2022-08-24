@@ -1,13 +1,13 @@
 defmodule DNA do
-  @acids %{?\s => 0b0000, ?A => 0b0001, ?C => 0b0010, ?G => 0b0100, ?T => 0b1000}
-  @codes %{0b0000 => ?\s, 0b0001 => ?A, 0b0010 => ?C, 0b0100 => ?G, 0b1000 => ?T}
+  @nucleotide_to_code %{?\s => 0b0000, ?A => 0b0001, ?C => 0b0010, ?G => 0b0100, ?T => 0b1000}
+  @code_to_nucleotide %{0b0000 => ?\s, 0b0001 => ?A, 0b0010 => ?C, 0b0100 => ?G, 0b1000 => ?T}
 
   def encode_nucleotide(code_point) do
-    @acids[code_point]
+    @nucleotide_to_code[code_point]
   end
 
   def decode_nucleotide(encoded_code) do
-    @codes[encoded_code]
+    @code_to_nucleotide[encoded_code]
   end
 
   def encode(dna) do
