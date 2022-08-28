@@ -18,11 +18,6 @@ defmodule FileSniffer do
     do_verify(type_from_binary(file_binary), type_from_extension(extension))
   end
 
-  defp do_verify(file_type, extension_type) when file_type == extension_type do
-    {:ok, extension_type}
-  end
-
-  defp do_verify(_file_type, _extension_type) do
-    {:error, "Warning, file format and file extension do not match."}
-  end
+  defp do_verify(type, type), do: {:ok, type}
+  defp do_verify(_, _), do: {:error, "Warning, file format and file extension do not match."}
 end
