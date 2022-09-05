@@ -5,8 +5,7 @@ defmodule Newsletter do
   end
 
   def open_log(path) do
-    {:ok, file} = File.open(path, [:write])
-    file
+    File.open!(path, [:write])
   end
 
   def log_sent_email(pid, email) do
