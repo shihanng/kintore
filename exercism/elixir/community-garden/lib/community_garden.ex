@@ -14,14 +14,10 @@ defmodule CommunityGarden do
   end
 
   def register(pid, register_to) do
-    next = Agent.get(pid, fn %{next: next} -> next end)
-    plot = %Plot{plot_id: next, registered_to: register_to}
-
-    Agent.update(pid, fn %{next: next, plots: plots} ->
-      %{next: next + 1, plots: [plot | plots]}
+    Agent.get_and_update(pid, fn %{next: next, plots: plots} ->
+      plot = %Plot{plot_id: next, registered_to: register_to}
+      {plot, %{next: next + 1, plots: [plot | plots]}}
     end)
-
-    plot
   end
 
   def release(pid, plot_id) do
