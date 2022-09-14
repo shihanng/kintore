@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "leetcode-python"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+packages = [{include = "leetcode_python"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^22.8.0"
+isort = "^5.10.1"
+flake8 = "^5.0.4"
+pyright = "^1.1.271"
+mypy = "^0.971"
+pytest = "^7.1.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.isort]
+profile = "black"
