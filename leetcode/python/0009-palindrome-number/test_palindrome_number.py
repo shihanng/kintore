@@ -14,3 +14,6 @@ from palindrome_number import Solution
 def test_isPalindrome(x, expected):
     actual = Solution().isPalindrome(x)
     assert expected == actual
+
+    actual = Solution().isPalindrome2(x)
+    assert expected == actual
