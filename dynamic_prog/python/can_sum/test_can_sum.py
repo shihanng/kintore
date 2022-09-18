@@ -9,6 +9,7 @@ import pytest
         (7, [5, 3, 4, 7], True),
         (7, [2, 4], False),
         (8, [2, 3, 5], True),
+        (300, [7, 14], False),
     ],
 )
 def test_can_sum(target, numbers, expected):
