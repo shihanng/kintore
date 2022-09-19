@@ -1,5 +1,5 @@
 import pytest
-from fibonacci import fib, fib_memo
+from fibonacci import fib, fib_memo, fib_tab
 
 
 @pytest.mark.parametrize(
@@ -17,6 +17,9 @@ def test_fib(n, expected):
     actual = fib_memo(n)
     assert expected == actual
 
+    actual = fib_tab(n)
+    assert expected == actual
+
 
 @pytest.mark.parametrize(
     "n,expected",
@@ -26,4 +29,7 @@ def test_fib(n, expected):
 )
 def test_fib_memo(n, expected):
     actual = fib_memo(n)
+    assert expected == actual
+
+    actual = fib_tab(n)
     assert expected == actual
