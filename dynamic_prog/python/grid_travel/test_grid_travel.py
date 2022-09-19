@@ -15,3 +15,6 @@ import pytest
 def test_fib(m, n, expected):
     actual = grid_travel.grid_travel(m, n)
     assert expected == actual
+
+    actual = grid_travel.grid_travel_tab(m, n)
+    assert expected == actual
