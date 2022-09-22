@@ -17,3 +17,20 @@ def how_sum(target, numbers, memo={}):
 
     memo[target] = None
     return None
+
+
+def how_sum_tab(target, numbers):
+    tab = [None] * (target + 1)
+    tab[0] = []
+
+    for i, col in enumerate(tab):
+        if col is None:
+            continue
+
+        for num in numbers:
+            n = i + num
+
+            if n < len(tab):
+                tab[n] = [*col, num]
+
+    return tab[-1]

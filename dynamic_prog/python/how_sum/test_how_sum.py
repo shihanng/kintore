@@ -15,3 +15,6 @@ import pytest
 def test_how_sum(target, numbers, expected):
     actual = how_sum.how_sum(target, numbers, memo={})
     assert expected == actual
+
+    actual = how_sum.how_sum_tab(target, numbers)
+    assert expected == actual
