@@ -15,3 +15,6 @@ import pytest
 def test_can_sum(target, numbers, expected):
     actual = can_sum.can_sum_memo(target, numbers, memo={})
     assert expected == actual
+
+    actual = can_sum.can_sum_tab(target, numbers)
+    assert expected == actual
