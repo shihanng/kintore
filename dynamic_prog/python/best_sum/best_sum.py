@@ -23,3 +23,23 @@ def best_sum(target, numbers, memo={}):
 
     memo[target] = best
     return best
+
+
+def best_sum_tab(target, numbers):
+    tab = [None] * (target + 1)
+    tab[0] = []
+
+    for i, col in enumerate(tab):
+        if col is None:
+            continue
+
+        for num in numbers:
+            n = i + num
+
+            if n >= len(tab):
+                continue
+
+            if tab[n] is None or len(tab[n]) > len([*col, num]):
+                tab[n] = [*col, num]
+
+    return tab[-1]

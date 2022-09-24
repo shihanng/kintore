@@ -16,3 +16,6 @@ import pytest
 def test_best_sum(target, numbers, expected):
     actual = best_sum.best_sum(target, numbers, memo={})
     assert expected == actual
+
+    actual = best_sum.best_sum_tab(target, numbers)
+    assert expected == actual
