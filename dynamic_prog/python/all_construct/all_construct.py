@@ -1,3 +1,6 @@
+from typing import Optional
+
+
 def all_construct(target, words, memo={}) -> list[list[str]]:
     val = memo.get(target)
     if val is not None:
@@ -16,3 +19,23 @@ def all_construct(target, words, memo={}) -> list[list[str]]:
 
     memo[target] = all
     return all
+
+
+def all_construct_tab(target, words):
+    tab: list[list[list[str]]] = [[]] * (len(target) + 1)
+    tab[0] = [[]]
+
+    for i, _ in enumerate(target):
+        if len(tab[i]) == 0:
+            continue
+
+        for word in words:
+            if not target[i:].startswith(word):
+                continue
+
+            n = i + len(word)
+            if n < len(tab):
+                for t in tab[i]:
+                    tab[n] = [*tab[n], [*t, word]]
+
+    return tab[-1]

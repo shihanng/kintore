@@ -31,3 +31,9 @@ import pytest
 def test_all_construct(target, words, expected):
     actual = all_construct.all_construct(target, words, memo={})
     assert expected == actual
+
+    if target != "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef":
+        actual = all_construct.all_construct_tab(target, words)
+        assert {(frozenset(item)) for item in expected} == {
+            (frozenset(item)) for item in actual
+        }
