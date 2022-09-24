@@ -19,3 +19,6 @@ import pytest
 def test_count_construct(target, words, expected):
     actual = count_construct.count_construct(target, words, memo={})
     assert expected == actual
+
+    actual = count_construct.count_construct_tab(target, words)
+    assert expected == actual
