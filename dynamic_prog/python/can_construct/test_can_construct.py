@@ -18,3 +18,6 @@ import pytest
 def test_can_sum(target, words, expected):
     actual = can_construct.can_construct(target, words, memo={})
     assert expected == actual
+
+    actual = can_construct.can_construct_tab(target, words)
+    assert expected == actual
