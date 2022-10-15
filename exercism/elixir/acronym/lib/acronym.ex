@@ -11,8 +11,7 @@ defmodule Acronym do
   end
 
   defp join([head | tail], abbr) do
-    <<char::binary-size(1)>> <> _ = head
-    join(tail, abbr <> String.upcase(char))
+    join(tail, abbr <> String.upcase(String.first(head)))
   end
 
   defp join([], abbr), do: abbr
